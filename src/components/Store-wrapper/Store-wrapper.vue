@@ -2,7 +2,7 @@
   <div class="main-wrapper">
     <h2>{{ title }}</h2>
     <Catalog /><br />
-    <Cart v-if="CART.length" />
+    <Cart v-if="CART.length" :cart_data="CART" />
   </div>
 </template>
 

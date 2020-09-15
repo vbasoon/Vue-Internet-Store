@@ -7,7 +7,7 @@
     />
     <h3 class="card__name title">{{ product_data.name }}</h3>
     <p class="card__prise text">{{ product_data.price }} P.</p>
-    <button class="card__add_to_cart_button btn" @click="sendToCart">
+    <button class="card__add_to_cart_button btn" @click="addToCart">
       Add to cart
     </button>
   </div>
@@ -82,8 +82,8 @@ export default {
   mounted() {},
   beforeDestroy() {},
   methods: {
-    sendToCart() {
-      this.$emit("sendArticle", this.product_data.article);
+    addToCart() {
+      this.$emit("addToCart", this.product_data);
     },
   },
 };

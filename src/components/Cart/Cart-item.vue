@@ -1,18 +1,11 @@
 <template>
-  <div class="cart">
-    <h1>Cart</h1>
-    <CartItem />
-  </div>
+  <div>Cart-item</div>
 </template>
 
 <script>
-import CartItem from "./Cart-item";
-
 export default {
   name: "Cart",
-  components: {
-    CartItem,
-  },
+  components: {},
   props: {},
   data() {
     return {};

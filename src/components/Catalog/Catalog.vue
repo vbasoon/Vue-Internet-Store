@@ -1,7 +1,7 @@
 <template>
   <div class="catalog">
     <Card
-      v-for="product in products"
+      v-for="product in PRODUCTS"
       :key="product.article"
       :product_data="product"
       @sendArticle="showArticle"
@@ -11,6 +11,8 @@
 
 <script>
 import Card from "../Card/Card.vue";
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "Catalog",
   components: {
@@ -71,9 +73,19 @@ export default {
       ],
     };
   },
-  mounted() {},
+  mounted() {
+    this.GET_PRODUCTS_FROM_API().then((response) => {
+      if (response.data) {
+        console.log("Data is OK!");
+      }
+    });
+  },
+  computed: {
+    ...mapGetters(["PRODUCTS"]),
+  },
   beforeDestroy() {},
   methods: {
+    ...mapActions(["GET_PRODUCTS_FROM_API"]),
     showArticle(data) {
       console.log(data);
     },

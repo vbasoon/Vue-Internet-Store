@@ -19,7 +19,7 @@ let store = new Vuex.Store({
             method: "GET"
          })
             .then((products) => {
-               commit('SET_PRODUCTS_TO_STATE', products);
+               commit('SET_PRODUCTS_TO_STATE', products.data);
                return products;
             })
             .catch((error) => {

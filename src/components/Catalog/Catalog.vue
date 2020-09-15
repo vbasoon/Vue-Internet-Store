@@ -1,17 +1,11 @@
 <template>
   <div class="catalog">
-    <div class="catalog__title title">
-      <h1>Catalog</h1>
-    </div>
-    <div class="cards-body">
-      <div class="cards-body__list">
-        <Card
-          v-for="product in products"
-          :key="product.article"
-          :product_data="product"
-        />
-      </div>
-    </div>
+    <Card
+      v-for="product in products"
+      :key="product.article"
+      :product_data="product"
+      @sendArticle="showArticle"
+    />
   </div>
 </template>
 
@@ -79,17 +73,19 @@ export default {
   },
   mounted() {},
   beforeDestroy() {},
-  methods: {},
+  methods: {
+    showArticle(data) {
+      console.log(data);
+    },
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-.card-body {
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
+<style lang="scss">
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

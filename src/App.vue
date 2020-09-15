@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>Hello Vue!!!</h1>
     <StoreWrapper />
   </div>
 </template>

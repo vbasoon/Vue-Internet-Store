@@ -15,7 +15,7 @@ export default {
   props: {},
   data() {
     return {
-      title: "Main Wrapper",
+      title: "Catalog",
     };
   },
   computed: {},

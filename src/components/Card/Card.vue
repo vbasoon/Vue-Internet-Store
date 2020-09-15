@@ -1,14 +1,15 @@
 <template>
-  <div class="card-wrapper">
-    <div class="card">
-      <img
-        :src="require('../../assets/images/' + product_data.image)"
-        alt="img"
-      />
-      <h3 class="card__name title">{{ product_data.name }}</h3>
-      <p class="card__prise text">{{ product_data.price }}</p>
-      <button class="card__add_to_cart_button btn">Add to cart</button>
-    </div>
+  <div class="card">
+    <img
+      class="card__image img"
+      :src="require('../../assets/images/' + product_data.image)"
+      alt="img"
+    />
+    <h3 class="card__name title">{{ product_data.name }}</h3>
+    <p class="card__prise text">{{ product_data.price }} P.</p>
+    <button class="card__add_to_cart_button btn" @click="sendToCart">
+      Add to cart
+    </button>
   </div>
 </template>
 
@@ -80,16 +81,26 @@ export default {
   },
   mounted() {},
   beforeDestroy() {},
-  methods: {},
+  methods: {
+    sendToCart() {
+      this.$emit("sendArticle", this.product_data.article);
+    },
+  },
 };
 </script>
 
 <style lang="scss">
-.card-wrapper {
-  width: 25%;
+.card-body {
+  width: 100%;
+}
+
+.card {
   flex-basis: 25%;
   box-shadow: 0 0 8px 0 #e0e0e0;
   padding: $padding * 2;
   margin-bottom: $margin * 2;
+  &__image {
+    width: 50%;
+  }
 }
 </style>

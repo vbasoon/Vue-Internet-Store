@@ -10,6 +10,8 @@
       :key="item.article"
       :cart_item_data="item"
       @deleteFromCart="deleteFromCart(index)"
+      @increment="increment(index)"
+      @decrement="decrement(index)"
     />
     <div class="cart__total">
       <p class="total__name">Total:</p>
@@ -47,12 +49,14 @@ export default {
           let price_total = item.price * item.quantity;
           result.push(price_total);
         }
-      }
 
-      result = result.reduce(function (sum, el) {
-        return sum + el;
-      });
-      return result;
+        result = result.reduce(function (sum, el) {
+          return sum + el;
+        });
+        return result;
+      } else {
+        return 0;
+      }
     },
   },
   methods: {
@@ -61,6 +65,12 @@ export default {
       "DECREMENT_CART_ITEM",
       "DELETE_FROM_CART",
     ]),
+    increment(index) {
+      this.INCREMENT_CART_ITEM(index);
+    },
+    decrement(index) {
+      this.DECREMENT_CART_ITEM(index);
+    },
     deleteFromCart(index) {
       this.DELETE_FROM_CART(index);
     },
@@ -79,7 +89,7 @@ export default {
     padding: $padding * 2;
     display: flex;
     justify-content: center;
-    background-color: #062b92;
+    background-color: $blu-bg;
     color: #fff;
     font-size: 18px;
   }

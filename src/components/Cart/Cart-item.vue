@@ -13,9 +13,9 @@
     <div class="cart-item_quantity">
       <p>Quantity:</p>
       <span>
-        <span @click="decrementItem">-</span>
+        <span class="quantity__btn" @click="decrementItem">-</span>
         {{ cart_item_data.quantity }}
-        <span @click="incrementItem">+</span>
+        <span class="quantity__btn" @click="incrementItem">+</span>
       </span>
     </div>
     <button @click="deleteFromCart">Delete</button>
@@ -65,6 +65,9 @@ export default {
   margin-bottom: $margin * 2;
   &__image {
     max-width: 60px;
+  }
+  .quantity__btn {
+    cursor: pointer;
   }
 }
 </style>

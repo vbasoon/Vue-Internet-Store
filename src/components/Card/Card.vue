@@ -79,7 +79,9 @@ export default {
   data() {
     return {};
   },
-  mounted() {},
+  mounted() {
+    this.$set(this.product_data, "quantity", 1);
+  },
   beforeDestroy() {},
   methods: {
     addToCart() {

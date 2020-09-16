@@ -11,6 +11,10 @@
       :cart_item_data="item"
       @deleteFromCart="deleteFromCart(index)"
     />
+    <div class="cart__total">
+      <p class="total__name">Total:</p>
+      <p>{{ cartTotalCost }} P.</p>
+    </div>
   </div>
 </template>
 
@@ -34,8 +38,21 @@ export default {
   data() {
     return {};
   },
-  mounted() {},
-  beforeDestroy() {},
+  computed: {
+    cartTotalCost() {
+      let result = [];
+
+      for (let item of this.cart_data) {
+        let price_total = item.price * item.quantity;
+        result.push(price_total);
+      }
+
+      result = result.reduce(function (sum, el) {
+        return sum + el;
+      });
+      return result;
+    },
+  },
   methods: {
     ...mapActions(["DELETE_FROM_CART"]),
     deleteFromCart(index) {
@@ -45,4 +62,24 @@ export default {
 };
 </script>
 
-<style lang="css" scoped></style>
+<style lang="scss">
+.cart {
+  margin-bottom: 100px;
+  &__total {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: $padding * 2;
+    display: flex;
+    justify-content: center;
+    background-color: #062b92;
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .total__name {
+    margin-right: $margin * 2;
+  }
+}
+</style>

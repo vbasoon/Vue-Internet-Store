@@ -3,13 +3,17 @@
     <router-link :to="{ name: 'cart', params: { cart_data: CART } }"
       ><div class="catalog__link_to_cart">Cart: {{ CART.length }}</div>
     </router-link>
-
-    <Card
-      v-for="product in PRODUCTS"
-      :key="product.article"
-      :product_data="product"
-      @addToCart="addToCart"
-    />
+    <div class="catalog__title">
+      <h1>{{ title }}</h1>
+    </div>
+    <div class="catalog__list">
+      <Card
+        v-for="product in PRODUCTS"
+        :key="product.article"
+        :product_data="product"
+        @addToCart="addToCart"
+      />
+    </div>
   </div>
 </template>
 
@@ -25,6 +29,7 @@ export default {
   props: {},
   data() {
     return {
+      title: "Catalog",
       products: [
         {
           image: "1.jpg",
@@ -100,10 +105,13 @@ export default {
 
 <style lang="scss">
 .catalog {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__link_to_cart {
     position: absolute;
     top: 10px;

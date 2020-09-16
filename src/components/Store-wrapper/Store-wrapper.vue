@@ -1,14 +1,18 @@
 <template>
   <div class="main-wrapper">
     <h2>{{ title }}</h2>
-    <Catalog /><br />
-    <Cart v-if="CART.length" :cart_data="CART" />
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+
+    <!-- <Catalog /><br />
+    <Cart v-if="CART.length" :cart_data="CART" /> -->
   </div>
 </template>
 
 <script>
-import Catalog from "../Catalog/Catalog.vue";
-import Cart from "../Cart/Cart.vue";
+// import Catalog from "../Catalog/Catalog.vue";
+// import Cart from "../Cart/Cart.vue";
 import { mapGetters } from "vuex";
 
 export default {
@@ -27,10 +31,10 @@ export default {
   mounted() {
     console.log("Hello! A`m alive!!!");
   },
-  components: {
-    Cart,
-    Catalog,
-  },
+  // components: {
+  //   Cart,
+  //   Catalog,
+  // },
 };
 </script>
 

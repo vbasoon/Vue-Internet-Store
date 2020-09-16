@@ -50,6 +50,12 @@ let store = new Vuex.Store({
       ADD_TO_CART({ commit }, product) {
          commit('SET_CART', product)
       },
+      INCREMENT_CART_ITEM({ commit }) {
+         commit('INCREMENT_CART_ITEM')
+      },
+      DECREMENT_CART_ITEM({ commit }) {
+         commit('DECREMENT_CART_ITEM')
+      },
       DELETE_FROM_CART({ commit }, index) {
          commit('REMOVE_FROM_CART', index)
       }

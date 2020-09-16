@@ -42,9 +42,11 @@ export default {
     cartTotalCost() {
       let result = [];
 
-      for (let item of this.cart_data) {
-        let price_total = item.price * item.quantity;
-        result.push(price_total);
+      if (this.cart_data.length) {
+        for (let item of this.cart_data) {
+          let price_total = item.price * item.quantity;
+          result.push(price_total);
+        }
       }
 
       result = result.reduce(function (sum, el) {
@@ -54,7 +56,11 @@ export default {
     },
   },
   methods: {
-    ...mapActions(["DELETE_FROM_CART"]),
+    ...mapActions([
+      "INCREMENT_CART_ITEM",
+      "DECREMENT_CART_ITEM",
+      "DELETE_FROM_CART",
+    ]),
     deleteFromCart(index) {
       this.DELETE_FROM_CART(index);
     },

@@ -15,7 +15,7 @@
     />
     <div class="cart__total">
       <p class="total__name">Total:</p>
-      <p>{{ cartTotalCost }} P.</p>
+      <p>{{ cartTotalCost }} грн.</p>
     </div>
   </div>
 </template>

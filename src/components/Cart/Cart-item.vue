@@ -7,7 +7,7 @@
     />
     <div class="cart-item__info">
       <p>{{ cart_item_data.name }}</p>
-      <p>{{ cart_item_data.price }}</p>
+      <p>{{ cart_item_data.price }} грн.</p>
       <p>{{ cart_item_data.article }}</p>
     </div>
     <div class="cart-item_quantity">

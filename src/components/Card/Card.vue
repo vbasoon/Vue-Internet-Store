@@ -6,7 +6,7 @@
       alt="img"
     />
     <h3 class="card__name title">{{ product_data.name }}</h3>
-    <p class="card__prise text">{{ product_data.price }} P.</p>
+    <p class="card__prise text">{{ product_data.price }} грн.</p>
     <button class="card__add_to_cart_button btn" @click="addToCart">
       Add to cart
     </button>

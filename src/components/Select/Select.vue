@@ -42,11 +42,12 @@ computed: {}
 <style>
   .select {
     position: relative;
-    width: 100px;
+    width: 200px;
+    cursor: pointer;
   }
 
   .title {
-border: 1px solid #aeaeae;
+    border: 1px solid #aeaeae;
   }
 
   .select p {
@@ -57,10 +58,13 @@ border: 1px solid #aeaeae;
   .options {
     border: solid 1px #aeaeae;
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: 0;
     width: 100%;
+  }
 
+  .options p:hover {
+    background: #e7e7e7;
   }
 
 </style>

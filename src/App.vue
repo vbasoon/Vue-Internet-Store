@@ -1,44 +1,45 @@
 <template>
   <div id="app">
     <StoreWrapper />
-    <Select
-      :options="options"
-      @select="optionSelect"
-      :selected="selected"
-    />
-    <p>{{selected}}</p>
-
   </div>
 </template>
 
 <script>
 import StoreWrapper from "./components/Store-wrapper/Store-wrapper.vue";
-import Select from './components/Select/Select.vue'
+import {mapActions, mapGetters} from 'vuex'
+
 export default {
   name: "App",
   components: { 
     StoreWrapper, 
-    Select 
   },
-  data() {
-      return {
-        options: [
-          {name: 'Option 1', value: 1},
-          {name: 'Option 2', value: 2},
-          {name: 'Option 3', value: 3},
-          {name: 'Option 4', value: 4},
-          {name: 'Option 5', value: 5}
-        ],
-        selected: 'Select'
-      }
-    }
-  ,
+  computed: {
+    ...mapGetters([
+      'IS_MOBILE',
+      'IS_DESKTOP'
+    ])
+  },
   methods: {
-    optionSelect(option) {
-      this.selected = option.name
-    }
+    ...mapActions([
+      'SET_TO_MOBILE',
+      'SET_TO_DESKTOP'
+   ]),
+  },
+  mounted() {
+    let hl = this;
+   window.addEventListener('resize', function () {
+     if (window.innerWidth > 767) {
+       hl.SET_TO_DESKTOP()
+       console.log('Desktop', hl.IS_DESKTOP);
+       
+     } else {
+      hl.SET_TO_MOBILE()
+      console.log('Mobile', hl.IS_MOBILE);
+       
+     }
+   })
+ }
   }
-}
 </script>
 
 <style>

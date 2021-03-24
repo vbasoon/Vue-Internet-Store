@@ -3,10 +3,10 @@
 <p 
   class="title"
   @click="isVisible = !isVisible"
-  >{{selected}}</p>
+  >{{selected}}<span>  &darr;</span></p>
     <div 
       class="options"
-      v-if="isVisible">
+      v-if="isVisible || isExpanded">
       <p
         v-for="option in options"
         :key="option.value"
@@ -33,6 +33,10 @@ export default {
     selected: {
       type: String,
       default: ''
+    },
+    isExpanded: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
@@ -64,7 +68,8 @@ beforeDestroy() {
     position: relative;
     width: 200px;
     cursor: pointer;
-    
+    background: #fff;
+
   }
 
   .title {
@@ -77,6 +82,7 @@ beforeDestroy() {
 
 
   .options {
+    background: #fff;
     border: solid 1px #aeaeae;
     position: absolute;
     top: 30px;

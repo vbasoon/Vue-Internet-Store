@@ -42,7 +42,8 @@ export default {
   },
 methods: {
   selectOption(option) {
-    this.$emit('select',option)
+    this.$emit('select', option);
+    this.isVisible = false;
   }
 }
 }

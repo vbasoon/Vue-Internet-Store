@@ -1,6 +1,9 @@
 <template>
   <div class="select">
-<p class="title">Select</p>
+<p 
+  class="title"
+  @click="isVisible = !isVisible"
+  >Select</p>
     <div 
       class="options"
       v-if="isVisible">

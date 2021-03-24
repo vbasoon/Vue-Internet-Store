@@ -44,7 +44,16 @@ methods: {
   selectOption(option) {
     this.$emit('select', option);
     this.isVisible = false;
+  },
+  hideSelect() {
+    this.isVisible = false;
   }
+},
+mounted() {
+
+},
+beforeDestroy() {
+
 }
 }
 </script>

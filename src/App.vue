@@ -3,6 +3,7 @@
     <StoreWrapper />
     <Select
       :options="options"
+      @select="optionSelect"
     />
   </div>
 </template>

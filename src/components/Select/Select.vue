@@ -1,7 +1,9 @@
 <template>
   <div class="select">
 <p class="title">Select</p>
-    <div class="options">
+    <div 
+      class="options"
+      v-if="isVisible">
       <p
         v-for="option in options"
         :key="option.value"
@@ -26,7 +28,9 @@ export default {
     }
   },
   data() {
-    return {}
+    return {
+      isVisible: false
+    }
   },
 computed: {}
 }

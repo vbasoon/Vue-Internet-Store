@@ -10,6 +10,7 @@
       <p
         v-for="option in options"
         :key="option.value"
+        @click="selectOption(option)"
       >
         {{option.name}}
 
@@ -35,7 +36,11 @@ export default {
       isVisible: false
     }
   },
-computed: {}
+methods: {
+  selectOption(option) {
+    console.log(option)
+  }
+}
 }
 </script>
 

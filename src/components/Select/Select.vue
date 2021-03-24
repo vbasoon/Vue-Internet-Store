@@ -1,12 +1,15 @@
 <template>
   <div class="select">
 <p>Select</p>
-<div class="options">
-  <span>
-    v-for="option in "
+    <div class="options">
+      <p
+        v-for="option in options"
+        :key="option.value"
+      >
+        {{option.name}}
 
-  </span>
-</div>
+      </p>
+    </div>
   </div>
 </template>
 
@@ -29,6 +32,9 @@ computed: {}
 }
 </script>
 
-<style scoped>
+<style>
+  .select p {
+    margin: 0;
+  }
 
 </style>

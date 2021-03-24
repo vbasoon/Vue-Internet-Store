@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <StoreWrapper />
-    <Select/>
+    <Select
+      :options="options"
+    />
   </div>
 </template>
 
@@ -11,10 +13,12 @@ import Select from './components/Select/Select.vue'
 export default {
   name: "App",
   components: { 
-    StoreWrapper, Select },
-    data() {
+    StoreWrapper, 
+    Select 
+  },
+  data() {
       return {
-        option: [
+        options: [
           {name: 'Option 1', value: 1},
           {name: 'Option 2', value: 2},
           {name: 'Option 3', value: 3},
@@ -23,7 +27,8 @@ export default {
         ]
       }
     }
-};
+  }
+
 </script>
 
 <style>

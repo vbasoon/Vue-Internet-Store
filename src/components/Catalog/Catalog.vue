@@ -5,12 +5,31 @@
     </router-link>
     <div class="catalog__title">
       <h1>{{ title }}</h1>
-      <Select
+      <div class="filters">
+        <Select
           :options="options"
           @select="sortByCategories"
           :selected="selected"
-          :isExpanded="IS_DESKTOP"
+          :isExpanded="false"
       />
+      <div class="range-slider">
+        <input 
+          type="range" 
+          min="0" 
+          max="100" 
+          step="10"
+          v-model.number="minPrice"
+        >
+        <input 
+          type="range" 
+          min="0" 
+          max="100" 
+          step="10"
+          v-model.number="maxPrice"
+        >
+      </div>
+      </div>
+      
     </div>
     <div class="catalog__list">
       <Card
@@ -46,6 +65,9 @@ export default {
       ],
       selected: 'Всі',
       sortedProducts: [],
+      minPrice: 0,
+      maxPrice: 1000,
+
     };
   },
   mounted() {
@@ -111,6 +133,9 @@ export default {
     right: 10px;
     padding: $padding * 2;
     border: 1px solid #aeaeae;
+    background: #fff;
   }
 }
+
+
 </style>

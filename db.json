@@ -6,7 +6,7 @@
       "price": 210.23,
       "article": "T1",
       "available": true,
-      "category": "Мужские"
+      "category": "Чоловічі"
     },
     {
       "image": "2.jpg",
@@ -14,7 +14,7 @@
       "price": 315.12,
       "article": "T2",
       "available": true,
-      "category": "Женские"
+      "category": "Жіночі"
     },
     {
       "image": "3.jpg",
@@ -22,7 +22,7 @@
       "price": 420.51,
       "article": "T3",
       "available": false,
-      "category": "Женские"
+      "category": "Жіночі"
     },
     {
       "image": "4.jpg",
@@ -30,7 +30,7 @@
       "price": 530.12,
       "article": "T4",
       "available": true,
-      "category": "Мужские"
+      "category": "Чоловічі"
     },
     {
       "image": "5.jpg",
@@ -38,7 +38,7 @@
       "price": 650.35,
       "article": "T5",
       "available": false,
-      "category": "Женские"
+      "category": "Жіночі"
     },
     {
       "image": "6.jpeg",
@@ -46,7 +46,7 @@
       "price": 870.41,
       "article": "T6",
       "available": true,
-      "category": "Женские"
+      "category": "Жіночі"
     }
   ]
 }

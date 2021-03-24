@@ -64,6 +64,7 @@ beforeDestroy() {
     position: relative;
     width: 200px;
     cursor: pointer;
+    
   }
 
   .title {

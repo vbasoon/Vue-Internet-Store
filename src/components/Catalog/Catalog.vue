@@ -5,19 +5,26 @@
     </router-link>
     <div class="catalog__title">
       <h1>{{ title }}</h1>
+      <Select
+          :options="options"
+          @select="sortByCategories"
+          :selected="selected"
+      />
     </div>
     <div class="catalog__list">
       <Card
-        v-for="product in PRODUCTS"
+        v-for="product in filteredProducts"
         :key="product.article"
         :product_data="product"
         @addToCart="addToCart"
       />
+      
     </div>
   </div>
 </template>
 
 <script>
+import Select from '../Select/Select.vue'
 import Card from "../Card/Card.vue";
 import { mapActions, mapGetters } from "vuex";
 
@@ -25,76 +32,58 @@ export default {
   name: "Catalog",
   components: {
     Card,
+    Select
   },
   props: {},
   data() {
     return {
       title: "Catalog",
-      // products: [
-      //   {
-      //     image: "1.jpg",
-      //     name: "T-shirt 1",
-      //     price: 2100.234234234,
-      //     article: "T1",
-      //     available: true,
-      //     category: "Мужские",
-      //   },
-      //   {
-      //     image: "2.jpg",
-      //     name: "T-shirt 2",
-      //     price: 3150.12312412,
-      //     article: "T2",
-      //     available: true,
-      //     category: "Женские",
-      //   },
-      //   {
-      //     image: "3.jpg",
-      //     name: "T-shirt 3",
-      //     price: 4200.51524,
-      //     article: "T3",
-      //     available: false,
-      //     category: "Женские",
-      //   },
-      //   {
-      //     image: "4.jpg",
-      //     name: "T-shirt 4",
-      //     price: 5300.1245512,
-      //     article: "T4",
-      //     available: true,
-      //     category: "Мужские",
-      //   },
-      //   {
-      //     image: "5.jpg",
-      //     name: "T-shirt 5",
-      //     price: 6500.3522314,
-      //     article: "T5",
-      //     available: false,
-      //     category: "Женские",
-      //   },
-      //   {
-      //     image: "6.jpeg",
-      //     name: "T-shirt 6",
-      //     price: 8700.4124123,
-      //     article: "T6",
-      //     available: true,
-      //     category: "Женские",
-      //   },
-      // ],
+      options: [
+        {name: 'Всі', value: "All"},
+        {name: 'Чоловічі', value: "M"},
+        {name: 'Жіночі', value: "F"}
+      ],
+      selected: 'Всі',
+      sortedProducts: [],
     };
   },
   mounted() {
-    this.GET_PRODUCTS_FROM_API().then((response) => {
+    this.GET_PRODUCTS_FROM_API()
+    .then((response) => {
       if (response.data) {
         console.log("Data is OK!");
       }
     });
   },
   computed: {
-    ...mapGetters(["PRODUCTS", "CART"]),
+    ...mapGetters([
+      "PRODUCTS", 
+      "CART"
+    ]),
+    filteredProducts() {
+      if (this.sortedProducts.length) {
+        return this.sortedProducts
+      } else {
+        return this.PRODUCTS
+      }  
+    },
   },
+  
   beforeDestroy() {},
   methods: {
-    ...mapActions(["GET_PRODUCTS_FROM_API", "ADD_TO_CART"]),
+    ...mapActions([
+      "GET_PRODUCTS_FROM_API", 
+      "ADD_TO_CART"
+    ]),
+    sortByCategories(category) {
+      this.sortedProducts = [];
+      let hl = this;
+      this.PRODUCTS.map(function(item) {
+        if (item.category === category.name) {
+          hl.sortedProducts.push(item);
+        }
+      })
+    },
     addToCart(data) {
       //this.$emit(this.product_data);
       this.ADD_TO_CART(data);

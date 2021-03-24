@@ -3,7 +3,7 @@
 <p 
   class="title"
   @click="isVisible = !isVisible"
-  >Select</p>
+  >{{selected}}</p>
     <div 
       class="options"
       v-if="isVisible">
@@ -29,6 +29,10 @@ export default {
       default() {
         return[]
       }
+    },
+    selected: {
+      type: String,
+      default: ''
     }
   },
   data() {

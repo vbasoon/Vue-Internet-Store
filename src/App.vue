@@ -4,7 +4,10 @@
     <Select
       :options="options"
       @select="optionSelect"
+      :selected="selected"
     />
+    <p>{{selected}}</p>
+
   </div>
 </template>
 
@@ -25,11 +28,17 @@ export default {
           {name: 'Option 3', value: 3},
           {name: 'Option 4', value: 4},
           {name: 'Option 5', value: 5}
-        ]
+        ],
+        selected: 'Select'
       }
     }
+  ,
+  methods: {
+    optionSelect(option) {
+      this.selected = option.name
+    }
   }
-
+}
 </script>
 
 <style>

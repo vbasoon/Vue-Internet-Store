@@ -83,6 +83,7 @@ export default {
           hl.sortedProducts.push(item);
         }
       })
+      this.selected = category.name;
     },
     addToCart(data) {
       //this.$emit(this.product_data);

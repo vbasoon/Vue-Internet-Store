@@ -107,14 +107,7 @@ export default {
       "ADD_TO_CART"
     ]),
     sortByCategories(category) {
-      this.sortedProducts = [];
-      let hl = this;
-      this.PRODUCTS.map(function(item) {
-        if (item.category === category.name) {
-          hl.sortedProducts.push(item);
-        }
-      })
-      this.selected = category.name;
+     
     },
     addToCart(data) {
       //this.$emit(this.product_data);

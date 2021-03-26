@@ -107,8 +107,18 @@ export default {
       "GET_PRODUCTS_FROM_API", 
       "ADD_TO_CART"
     ]),
-    sortByCategories() {
+    sortByCategories(category) {
+      let hl= this;
      this.sortedProducts = [...this.PRODUCTS]
+     this.sortedProducts = this.sortedProducts.filter(function (item){
+       return item.price >= hl.minPrice && item.price <= hl.maxPrice
+     })
+     if (category) {
+       this.sortedProducts = this.sortedProducts.filter(function(e){
+         hl.selected === category.name
+         return e.category === category.name
+       })
+     }
     },
     addToCart(data) {
       //this.$emit(this.product_data);
@@ -116,10 +126,11 @@ export default {
     },
     setRangeSlider() {
       if (this.minPrice> this.maxPrice) {
-let tmp = this.maxPrice;
-this.maxPrice = this.minPrice
-this.minPrice = tmp
+        let tmp = this.maxPrice;
+        this.maxPrice = this.minPrice;
+        this.minPrice = tmp;
       }
+      this.sortByCategories()
     }
   },
 };

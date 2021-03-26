@@ -27,6 +27,11 @@ export default {
 <style lang="scss">
    .popup {
       padding: 16px;
+      position: fixed;
+      top: 50px;
+      width: 400px;
+      background: #fff;
+      box-shadow: 0 0 17px #413e3e;
       &__header,
       &__footer {
          display: flex;

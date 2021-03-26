@@ -1,6 +1,8 @@
 <template>
   <div class="card">
-    <Popup/>
+    <Popup
+      v-if="isPopupVisible"
+    />
     <img
       class="card__image img"
       :src="require('../../assets/images/' + product_data.image)"
@@ -88,7 +90,9 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      isPopupVisible: false, 
+    };
   },
   mounted() {
     this.$set(this.product_data, "quantity", 1);
@@ -99,7 +103,7 @@ export default {
       this.$emit("addToCart", this.product_data);
     },
     showPopupInfo() {
-
+      this.isPopupVisible = true
     },
   },
 };

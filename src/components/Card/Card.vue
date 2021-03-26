@@ -3,7 +3,7 @@
     <Popup
       v-if="isPopupVisible"
       @closePopup="closePopupInfo"
-    />
+    ><p>Popup context</p></Popup>
     <img
       class="card__image img"
       :src="require('../../assets/images/' + product_data.image)"

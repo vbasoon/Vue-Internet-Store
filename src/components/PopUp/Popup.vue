@@ -3,15 +3,28 @@
      <div class="popup__header">
         <span>Popup name</span>
         <span>
-           <i class="material-icons">close</i>
+           <i 
+            class="material-icons close-icon"
+            @click="closePopup" 
+           >
+            close
+           </i>
         </span>
      </div>
      <div class="popup__content">
         <slot></slot>
      </div>
      <div class="popup__footer">
-        <button class="close_btn">Close</button>
-        <button class="add_to_btn">Add to cart</button>
+        <button 
+            class="close_btn"
+            @click="closePopup"
+         >
+            Close
+         </button>
+        <button 
+            class="add_to_btn"
+            
+         >Add to cart</button>
      </div>
 
 
@@ -20,6 +33,16 @@
 
 <script>
 export default {
+   name: 'Popup',
+   props: {},
+   data() {
+      return {}
+   },
+   methods: {
+      closePopup() {
+         this.$emit('closePopup')
+      }
+   }
 
 }
 </script>
@@ -47,11 +70,16 @@ export default {
          padding: 8px;
          color: #c8cfee;
          background: #6495ed;
+         cursor: pointer;
       }
       .close_btn {
          padding: 8px;
          color: #c8cfee;
          background: #d83636;
+         cursor: pointer;
+      }
+      .close-icon {
+         cursor: pointer;
       }
    }
 

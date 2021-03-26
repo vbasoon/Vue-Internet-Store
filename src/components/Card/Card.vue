@@ -2,6 +2,7 @@
   <div class="card">
     <Popup
       v-if="isPopupVisible"
+      @closePopup="closePopupInfo"
     />
     <img
       class="card__image img"
@@ -105,6 +106,9 @@ export default {
     showPopupInfo() {
       this.isPopupVisible = true
     },
+    closePopupInfo() {
+      this.isPopupVisible = false
+    }
   },
 };
 </script>

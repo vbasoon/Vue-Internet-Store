@@ -16,16 +16,18 @@
         <input 
           type="range" 
           min="0" 
-          max="100" 
+          max="1000" 
           step="10"
           v-model.number="minPrice"
+          @change="setRangeSlider"
         >
         <input 
           type="range" 
           min="0" 
-          max="100" 
+          max="1000" 
           step="10"
           v-model.number="maxPrice"
+          @change="setRangeSlider"
         >
       </div>
       <div class="range-values">
@@ -118,6 +120,13 @@ export default {
       //this.$emit(this.product_data);
       this.ADD_TO_CART(data);
     },
+    setRangeSlider() {
+      if (this.minPrice> this.maxPrice) {
+let tmp = this.maxPrice;
+this.maxPrice = this.minPrice
+this.minPrice = tmp
+      }
+    }
   },
 };
 </script>

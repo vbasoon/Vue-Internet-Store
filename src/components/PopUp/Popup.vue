@@ -54,7 +54,8 @@ export default {
       top: 50px;
       width: 400px;
       background: #fff;
-      box-shadow: 0 0 17px #413e3e;
+      box-shadow: 2px 2px 5px #413e3e;
+      z-index: 10;
       &__header,
       &__footer {
          display: flex;

@@ -3,7 +3,16 @@
     <Popup
       v-if="isPopupVisible"
       @closePopup="closePopupInfo"
-    ><p>Popup context</p></Popup>
+    >
+    <img
+      class="card__image img"
+      :src="require('../../assets/images/' + product_data.image)"
+      alt="img"
+    />
+    <h3 class="card__name title">{{ product_data.name }}</h3>
+    <p class="card__price text">{{ product_data.price }} грн.</p>
+    <p class="card__category text">{{ product_data.category }}</p>
+    </Popup>
     <img
       class="card__image img"
       :src="require('../../assets/images/' + product_data.image)"

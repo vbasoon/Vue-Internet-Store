@@ -2,6 +2,8 @@
   <div class="card">
     <Popup
       v-if="isPopupVisible"
+      shopBtn="Add to Cart"
+      :popupTitle="product_data.name"
       @closePopup="closePopupInfo"
     >
     <img

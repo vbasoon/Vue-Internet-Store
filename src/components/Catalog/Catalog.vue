@@ -81,6 +81,7 @@ export default {
     .then((response) => {
       if (response.data) {
         console.log("Data is OK!");
+        this.sortByCategories()
       }
     });
   },
@@ -106,8 +107,8 @@ export default {
       "GET_PRODUCTS_FROM_API", 
       "ADD_TO_CART"
     ]),
-    sortByCategories(category) {
-     
+    sortByCategories() {
+     this.sortedProducts = [...this.PRODUCTS]
     },
     addToCart(data) {
       //this.$emit(this.product_data);

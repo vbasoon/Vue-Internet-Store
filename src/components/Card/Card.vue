@@ -1,5 +1,6 @@
 <template>
   <div class="card">
+    <Popup/>
     <img
       class="card__image img"
       :src="require('../../assets/images/' + product_data.image)"
@@ -7,6 +8,12 @@
     />
     <h3 class="card__name title">{{ product_data.name }}</h3>
     <p class="card__prise text">{{ product_data.price }} грн.</p>
+    <button
+      class="show_btn"
+      @click="showPopupInfo"
+    >
+      Show Info
+    </button>
     <button class="card__add_to_cart_button btn" @click="addToCart">
       Add to cart
     </button>
@@ -14,9 +21,13 @@
 </template>
 
 <script>
+import Popup from './../PopUp/Popup'
+
 export default {
   name: "Card",
-  components: {},
+  components: {
+    Popup
+  },
   props: {
     product_data: {
       type: Object,
@@ -86,6 +97,9 @@ export default {
   methods: {
     addToCart() {
       this.$emit("addToCart", this.product_data);
+    },
+    showPopupInfo() {
+
     },
   },
 };

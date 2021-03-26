@@ -1,8 +1,18 @@
 <template>
   <div class="popup">
-     <div class="popup__header"></div>
-     <div class="popup__content"></div>
-     <div class="popup__footer"></div>
+     <div class="popup__header">
+        <span>Popup name</span>
+        <span>
+           <i class="material-icons">close</i>
+        </span>
+     </div>
+     <div class="popup__content">
+        <slot></slot>
+     </div>
+     <div class="popup__footer">
+        <button class="close_btn">Close</button>
+        <button class="add_to_btn">Add to cart</button>
+     </div>
 
 
   </div>
@@ -14,6 +24,30 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+   .popup {
+      padding: 16px;
+      &__header,
+      &__footer {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      }
+      &__content {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+      .add_to_btn {
+         padding: 8px;
+         color: #c8cfee;
+         background: #6495ed;
+      }
+      .close_btn {
+         padding: 8px;
+         color: #c8cfee;
+         background: #d83636;
+      }
+   }
 
 </style>
